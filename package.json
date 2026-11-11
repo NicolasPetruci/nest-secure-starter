@@ -1,0 +1,43 @@
+{
+  "name": "nest-secure-starter",
+  "version": "0.1.0",
+  "description": "API NestJS de exemplo com a base de segurança que todo backend deveria ter (dados 100% fictícios).",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "build": "nest build",
+    "start": "node dist/main.js",
+    "start:dev": "nest start --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "setup": "npm install && npm --prefix web install && node -e \"const fs=require('fs');if(!fs.existsSync('.env')){fs.copyFileSync('.env.example','.env');console.log('.env criado a partir do .env.example')}\"",
+    "dev:all": "concurrently -k -n api,web -c yellow,magenta \"npm run start:dev\" \"npm --prefix web run dev\""
+  },
+  "dependencies": {
+    "@nestjs/common": "^12.0.0",
+    "@nestjs/core": "^12.0.0",
+    "@nestjs/jwt": "^12.0.0",
+    "@nestjs/platform-express": "^12.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "helmet": "^8.0.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^12.0.0",
+    "@nestjs/schematics": "^12.0.0",
+    "@nestjs/testing": "^12.0.1",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "@types/supertest": "^7.0.0",
+    "concurrently": "^10.0.7",
+    "supertest": "^7.0.0",
+    "typescript": "^6.0.2",
+    "vitest": "^5.1.0"
+  }
+}
